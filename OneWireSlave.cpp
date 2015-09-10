@@ -226,9 +226,7 @@ bool OneWireSlave::waitForRequest(bool ignore_errors) {
     // This will pull the line low for 125 micros (155 micros since the reset) and 
     //  then wait another 275 plus whatever wait for the line to go high to a max of 480
     // This has been modified from original to wait for the line to go high to a max of 480.
-    if (!presence() ) {
-      continue;
-    }
+    presence();
     //Now that the master should know we are here, we will get a command from the line
     //Because of our changes to the presence code, the line should be guranteed to be high
     if (recvAndProcessCmd() ) {
